@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  redis:
+    container_name: db_redis_6_2
+    image: redis:6.2.13
+    restart: always
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./data:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true

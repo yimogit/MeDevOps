@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   mongo:
-    container_name: mongo_4_4
+    container_name: db_mongo_4_4
     image: mongo:4.4.0
     restart: always
     networks:
