@@ -1,0 +1,33 @@
+<yandex>
+    <!-- 日志 -->
+    <logger>
+        <level>error</level>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>1000M</size>
+        <count>10</count>
+    </logger>
+    <!--由 JDBC、ODBC 和 Web 界面使用。-->
+    <http_port>8123</http_port>
+    <!-- 本机协议端口 -->
+    <tcp_port>9000</tcp_port>
+    <!-- MySQL 仿真端口 -->
+    <mysql_port>9004</mysql_port>
+    <listen_host>0.0.0.0</listen_host>
+    <!-- 时区 -->
+    <!-- <timezone>Asia/Shanghai</timezone> -->
+    <!-- prometheus -->
+    <prometheus>
+        <endpoint>/metrics</endpoint>
+        <port>9363</port>
+        <metrics>true</metrics>
+        <events>true</events>
+        <asynchronous_metrics>true</asynchronous_metrics>
+        <status_info>true</status_info>
+    </prometheus>
+    <!-- 用户配置 -->
+    <users_config>users.xml</users_config>
+    <!--集群设置-->
+    <include_from>/etc/clickhouse-server/metrika.xml</include_from>
+    <remote_servers incl="clickhouse_remote_servers" replace="replace"></remote_servers>
+</yandex>

@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mysql:
+    container_name: db_mysql_5_7
+    image: mysql:5.7
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=devops666
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      # 指定配置文件，需要手动创建
+      - ./config/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - "3306:3306"
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true

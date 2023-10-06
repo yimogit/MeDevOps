@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  db_mysql_8:
+    image: mysql:8.0
+    restart: always
+    # MySQL 8.0 默认使用 caching_sha2_password 身份验证插件，而不是 mysql_native_password 插件。在生产环境中，我们应该遵循官方建议，使用 caching_sha2_password 插件提供更强大的安全性
+    # command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: devops666
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:

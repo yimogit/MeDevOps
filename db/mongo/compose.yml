@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  mongo:
+    container_name: mongo_4_4
+    image: mongo:4.4.0
+    restart: always
+    networks:
+      - devopsnetwork
+    environment:
+      - TZ=Asia/Shanghai
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=devops666
+    command: mongod --config /etc/mongo/mongod.conf
+    volumes:
+      - ./data:/data/db
+      - ./logs:/data/log
+      - ./config/mongo.conf:/etc/mongo/mongod.conf
+    ports:
+      - "27017:27017"
+
+networks:
+  devopsnetwork:
+    external: true
