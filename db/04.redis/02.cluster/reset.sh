@@ -1,4 +1,3 @@
-
 # 创建 devops 网络
 # docker network create devopsnetwork
 
@@ -11,4 +10,3 @@ cd ..
 cd ./redis-6381 && docker compose down && rm ./data -rf && docker compose up -d
 
 cd ..
-

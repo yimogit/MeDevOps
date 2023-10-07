@@ -80,6 +80,8 @@
   #设置集群可用性
   # cluster-require-full-coverage yes
 
+  # 集群节点 IP，如果要外部访问需要修改为宿主机IP，如：192.168.123.216
+  # cluster-announce-ip 默认172.x.x.x
   #客户端连接端口
   #cluster-announce-port 6380
   #节点间通信端口
@@ -146,7 +148,6 @@ ${devops04}:6380 \
 ${devops04}:6381 \
 --cluster-replicas 1 \
 --cluster-yes
-
 ```
 
 6. 连接集群测试
@@ -165,6 +166,10 @@ redis-cli -h 192.168.123.216 -p 6380 -c
 ```
 
 至此，终于是一步步的创建好了 redis 集群
+
+## 集群外部访问
+
+设置 cluster-announce-ip 为宿主机 IP 即可
 
 ## 后语
 

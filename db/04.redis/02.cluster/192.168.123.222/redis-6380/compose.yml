@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  redis:
+    container_name: cluster_redis_6380
+    image: redis:6.2.13
+    restart: always
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./data:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6380:6380"
+      - "16380:16380"
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true
