@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Furion" Version="4.8.8.45" />
+    <PackageReference Include="SqlSugar.ClickHouseCore" Version="5.1.4.107" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.110-preview02" />
+  </ItemGroup>
+
+</Project>
