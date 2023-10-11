@@ -22,7 +22,7 @@ namespace DbDemo.Services
         public Ck_TestInfo Operate()
         {
             var count = clickhouseClient.Ado.SqlQuerySingle<int>("select 1");
-            //手动创建表
+            //插入数据
             clickhouseClient.Insertable(new Ck_TestInfo()
             {
                 Id = 1,

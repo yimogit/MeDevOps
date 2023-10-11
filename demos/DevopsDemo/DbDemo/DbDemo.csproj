@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Furion" Version="4.8.8.45" />
+    <PackageReference Include="Furion.Extras.DatabaseAccessor.MongoDB" Version="4.8.8.48" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.12" />
     <PackageReference Include="SqlSugar.ClickHouseCore" Version="5.1.4.107" />
     <PackageReference Include="SqlSugarCore" Version="5.1.4.110-preview02" />
   </ItemGroup>
