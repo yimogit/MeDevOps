@@ -1,0 +1,82 @@
+version: '3.1'
+services:
+  # Apollo数据库
+  apollo-db:
+    image: mysql:5.7
+    container_name: apollo_db_5_7
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 'devops666'
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./initsql:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql
+    networks:
+      - devopsnetwork
+
+  # Apollo 服务发现注册中心
+  apollo-configservice:
+    container_name: apollo_configservice_2_1
+    image: apolloconfig/apollo-configservice:2.1.0
+    restart: always
+    depends_on:
+      - apollo-db
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://apollo-db:3306/ApolloConfigDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_USERNAME: 'root'
+      SPRING_DATASOURCE_PASSWORD: 'devops666'
+      JAVA_OPTS: "-Deureka.instance.homePageUrl=http://192.168.123.214:8080"
+      # EUREKA_INSTANCE_HOME_PAGE_URL: http://192.168.123.214:8080
+      # EUREKA_INSTANCE_PREFER_IP_ADDRESS: false
+    volumes:
+      - ./logs:/opt/logs
+    ports:
+      - "8080:8080"
+    networks:
+      - devopsnetwork
+
+  #核心接口服务
+  apollo-adminservice:
+    container_name: apollo_adminservice_2_1
+    image: apolloconfig/apollo-adminservice:2.1.0
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://apollo-db:3306/ApolloConfigDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_USERNAME: 'root' 
+      SPRING_DATASOURCE_PASSWORD: 'devops666'
+      JAVA_OPTS: "-Deureka.instance.homePageUrl=http://192.168.123.214:8090 -Deureka.service.url=http://192.168.123.214:8080/eureka/ "
+    depends_on:
+      - apollo-db
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./logs/:/opt/logs      
+    networks:
+      - devopsnetwork
+      
+ 
+  apollo-portal:
+    image: apolloconfig/apollo-portal:2.1.0
+    container_name: apollo_portal_2_1
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://apollo-db:3306/ApolloPortalDB?characterEncoding=utf8'
+      SPRING_DATASOURCE_USERNAME: 'root'
+      SPRING_DATASOURCE_PASSWORD: 'devops666'
+      APOLLO_PORTAL_ENVS: 'dev'      
+      DEV_META: 'http://192.168.123.214:8080'
+      # 默认账号 apollo admin
+    depends_on:
+      - apollo-db
+    ports:
+      - "8070:8070"
+    volumes:
+      - ./logs/:/opt/logs         
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true
