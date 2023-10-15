@@ -23,21 +23,20 @@ docker compose down
 #启动
 docker compose up -d apollo-adminservice
 docker compose down apollo-adminservice
+docker compose restart apollo-adminservice
 
 docker compose up -d apollo-configservice
 docker compose down apollo-configservice
+docker compose restart apollo-configservice
 
 docker compose up -d apollo-portal
 docker compose down apollo-portal
-
-
-
 ```
 
 ## 问题
 
 - 数据库连接：SPRING_DATASOURCE_URL 中使用服务名 apollo-db
 - 默认账号密码：apollo admin
-- eureka.service.url 配置：默认从数据库读取，可以修改 apolloconfigdb.sql 437 行，也可以在 compose.yml 指定
+- eureka.service.url 配置：默认从数据库读取，可以修改数据库 apolloconfigdb.sql 437 行，也可以在 compose.yml 指定
 - 配置项 key 最大长度限制：默认配置是 128。
 - 配置项 value 最大长度限制:默认配置是 20000。
