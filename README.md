@@ -17,3 +17,7 @@
     - config: 配置文件夹
     - compose.yml: docker compose 配置
     - run.sh: 启动 compose 的脚本，也可以做一些前置操作
+- configservice: 配置中心
+  - apollo:阿波罗
+- mq
+  - rabbitmq
