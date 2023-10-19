@@ -1,0 +1,6 @@
+
+192.168.123.214 nginx.devops.test.com
+192.168.123.214 nginx214.devops.test.com
+
+192.168.123.214 apollo.devops.test.com
+192.168.123.214 rabbitmq.devops.test.com

@@ -20,6 +20,7 @@ services:
     volumes:
       - ./data:/var/lib/rabbitmq
       - ./myplugins:/myplugins
+      
     networks:
       - devopsnetwork
 

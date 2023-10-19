@@ -25,3 +25,9 @@ openssl x509 -req -CA ca.crt -CAkey ca.key -CAcreateserial -in server.csr -out s
 
 浏览器提示不安全的解决方案：设置域名客户端导入自己的 CA 证书
 原文：https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/
+
+### 添加自签证书申请脚本
+
+01.build-pem.sh 生成 pem 证书，导入到客户端口受信证书中
+02.build-ssl.sh 根据ca证书生成对应域名的ssl证书
+03.gen.sh 生成测试证书，重新生成先删除目录

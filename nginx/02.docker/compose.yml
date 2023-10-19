@@ -14,7 +14,7 @@ services:
       - ./config/conf.d:/etc/nginx/conf.d
       - ./html:/usr/share/nginx/html
       - ./logs:/var/log/nginx
-      - ./ssl:/ssl
+      - ./certs:/certs
 
     networks:
       - devopsnetwork
