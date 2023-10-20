@@ -29,5 +29,25 @@ openssl x509 -req -CA ca.crt -CAkey ca.key -CAcreateserial -in server.csr -out s
 ### 添加自签证书申请脚本
 
 01.build-pem.sh 生成 pem 证书，导入到客户端口受信证书中
-02.build-ssl.sh 根据ca证书生成对应域名的ssl证书
+02.build-ssl.sh 根据 ca 证书生成对应域名的 ssl 证书
 03.gen.sh 生成测试证书，重新生成先删除目录
+
+### 配置 dns
+
+每个域名都配置 hosts 有点麻烦，使用 sameersbn/bind：部署一个 dns 服务
+
+- Github：https://github.com/sameersbn/docker-bind
+- 版本： sameersbn/bind bind:9.16.1-20200524 ， webmin: v1.941
+- 设置时区
+- 设置 webmin 账号密码：root devops666
+- 默认端口：
+  - '53:53/udp'
+  - '53:53/tcp'
+- 后台服务端口
+
+  - '10000:10000/tcp'
+
+- 访问：https://ip:10000
+- 设置语言：中文
+- 配置域名：添加域名到可信赖的访问来源
+- 配置参考：https://blog.csdn.net/qq_36961626/article/details/123314087

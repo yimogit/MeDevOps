@@ -9,3 +9,5 @@ sh $script_dir/02.build-ssl.sh nginx.devops.test.com
 sh $script_dir/02.build-ssl.sh apollo.devops.test.com
 
 sh $script_dir/02.build-ssl.sh rabbitmq.devops.test.com
+
+sh $script_dir/02.build-ssl.sh dns.devops.test.com
