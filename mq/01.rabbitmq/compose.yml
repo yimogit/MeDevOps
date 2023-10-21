@@ -13,6 +13,7 @@ services:
       RABBITMQ_DEFAULT_USER: root
       # 密码
       RABBITMQ_DEFAULT_PASS: devops666
+      # :是分隔符
       RABBITMQ_PLUGINS_DIR: '/plugins:/myplugins'
     ports:
       - "5672:5672"

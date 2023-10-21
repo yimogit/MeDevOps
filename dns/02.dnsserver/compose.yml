@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  dns-server:
+    container_name: dns_server_11_4
+    hostname: dns-server
+    restart: always
+    image: technitium/dns-server:11.4.1
+    ports:
+      - "5380:5380/tcp" #DNS web console (HTTP)
+      # - "53443:53443/tcp" #DNS web console (HTTPS)
+      - "53:53/udp" #DNS service
+      - "53:53/tcp" #DNS service
+    environment:
+      - DNS_SERVER_DOMAIN=dns-server #The primary domain name used by this DNS Server to identify itself.
+      - DNS_SERVER_ADMIN_PASSWORD=devops666 #DNS web console admin user password.
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    volumes:
+      - ./data:/etc/dns

@@ -8,6 +8,8 @@ services:
       TZ : 'Asia/Shanghai'
       ROOT_PASSWORD: devops666
       WEBMIN_ENABLED: true
+      # 默认 true https://ip:10000
+      WEBMIN_INIT_SSL_ENABLED: true
     ports:
         - '10000:10000/tcp'
         - '53:53/udp'
