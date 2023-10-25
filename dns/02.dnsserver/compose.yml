@@ -11,9 +11,17 @@ services:
       - "53:53/udp" #DNS service
       - "53:53/tcp" #DNS service
     environment:
+      - TZ=Asia/Shanghai
+      - DNS_SERVER_LOG_USING_LOCAL_TIME=true
       - DNS_SERVER_DOMAIN=dns-server #The primary domain name used by this DNS Server to identify itself.
       - DNS_SERVER_ADMIN_PASSWORD=devops666 #DNS web console admin user password.
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65000
     volumes:
       - ./data:/etc/dns
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true
