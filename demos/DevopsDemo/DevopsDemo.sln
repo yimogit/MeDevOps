@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MqDemo", "MqDemo\MqDemo.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApolloDemo", "ApolloDemo\ApolloDemo.csproj", "{D7FE2C98-3A41-4155-8803-5D20D25F912F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvalDemo", "EvalDemo\EvalDemo.csproj", "{BBC14304-83FF-461E-BF19-FE1682247198}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvalDemo", "EvalDemo\EvalDemo.csproj", "{BBC14304-83FF-461E-BF19-FE1682247198}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{68B9FF0B-AAC5-486B-A91A-8B71C8B8AC17}"
+	ProjectSection(SolutionItems) = preProject
+		nuget.config = nuget.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
