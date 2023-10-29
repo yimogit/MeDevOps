@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Devops.Common.EvalSDK</id>
+        <version>0.0.1</version>
+        <authors>yimo</authors>
+        <description>计算字段</description>
+        <projectUrl>https://github.com/yimogit/MeDevOps</projectUrl>
+        <tags>Devops.Common.EvalSDK</tags>
+    </metadata>
+    <files>
+        <file src="..\Devops.Common.EvalSDK\bin\Release\netstandard2.1\*.dll" target="lib" />
+    </files>
+</package>
