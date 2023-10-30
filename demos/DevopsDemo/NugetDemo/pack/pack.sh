@@ -6,7 +6,7 @@ nuget_key="aa7890bf-8dfb-33e3-bed9-c1571e5b9b96"
 #托管仓库地址
 nuget_source="https://nexus.devops.test.com/repository/nuget-hosted/"
 #包的版本
-package_version="0.0.1"
+package_version="0.0.15"
 #包名
 nupkg_pakcage_name="Devops.Common.EvalSDK.${package_version}.nupkg"
 #项目库路径

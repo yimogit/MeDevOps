@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{68B9FF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NugetDemo", "NugetDemo", "{87107441-3B1E-4562-AC2A-9184FE1A2B39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Common.EvalSDK", "NugetDemo\Devops.Common.EvalSDK\Devops.Common.EvalSDK.csproj", "{F404D2A8-A755-4BB4-A7CF-07CED6D4A1C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Common.EvalSDK", "NugetDemo\Devops.Common.EvalSDK\Devops.Common.EvalSDK.csproj", "{F404D2A8-A755-4BB4-A7CF-07CED6D4A1C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pack", "pack", "{DDE8AFDD-0701-4D07-A8F7-6CB775139FFA}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pack", "pack", "{DDE8AFDD-0
 		NugetDemo\pack\pack.bat = NugetDemo\pack\pack.bat
 		NugetDemo\pack\pack.sh = NugetDemo\pack\pack.sh
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.ReSDK", "NugetDemo\Devops.ReSDK\Devops.ReSDK.csproj", "{0CC3B3F2-B247-43BF-B4AD-26C38EF643CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{F404D2A8-A755-4BB4-A7CF-07CED6D4A1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F404D2A8-A755-4BB4-A7CF-07CED6D4A1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F404D2A8-A755-4BB4-A7CF-07CED6D4A1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC3B3F2-B247-43BF-B4AD-26C38EF643CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC3B3F2-B247-43BF-B4AD-26C38EF643CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC3B3F2-B247-43BF-B4AD-26C38EF643CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC3B3F2-B247-43BF-B4AD-26C38EF643CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F404D2A8-A755-4BB4-A7CF-07CED6D4A1C9} = {87107441-3B1E-4562-AC2A-9184FE1A2B39}
 		{DDE8AFDD-0701-4D07-A8F7-6CB775139FFA} = {87107441-3B1E-4562-AC2A-9184FE1A2B39}
+		{0CC3B3F2-B247-43BF-B4AD-26C38EF643CC} = {87107441-3B1E-4562-AC2A-9184FE1A2B39}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D1A8CA6-16EC-4BF4-8B5F-6F9B27042E60}

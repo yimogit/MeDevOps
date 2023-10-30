@@ -1,8 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Devops.ReSDK;
 using Evaluator;
 using System.Text.RegularExpressions;
 
 Console.WriteLine("字符串表达式计算工具");
+
+var result = new Devops.Common.EvalSDK.EvalParser().EvalNumber("1+1", null);
+Console.WriteLine(result);
+
 EvalTest();
 
 void EvalTest()

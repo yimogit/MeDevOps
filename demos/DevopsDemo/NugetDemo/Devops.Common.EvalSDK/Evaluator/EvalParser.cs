@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Devops.ReSDK;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
@@ -287,9 +288,9 @@ namespace Devops.Common.EvalSDK
         /// <returns>计算的结果</returns>
         public decimal? EvalNumber(string expression, Dictionary<string, object> dynamicObject, int precision = 2)
         {
+            var values = dynamicObject ?? new Dictionary<string, object>();
             //中缀表达式，转换成后缀表达式并入列
-            var queue = ParserInfixExpression(expression, dynamicObject);
-            var values = dynamicObject;
+            var queue = ParserInfixExpression(expression, values);
             var cacheStack = new Stack<Expression>();
             while (queue.Count > 0)
             {
@@ -410,7 +411,7 @@ namespace Devops.Common.EvalSDK
         public string Compile(string expression, Dictionary<string, object> dynamicObject)
         {
             var queue = ParserInfixExpression(expression, dynamicObject, true);
-            var values = dynamicObject;
+            var values = dynamicObject ?? new Dictionary<string, object>();
 
             var cacheStack = new Stack<Expression>();
             var jsonStack = new Stack<string>();

@@ -153,6 +153,8 @@ namespace Evaluator
                 return queue;
             expression = PreReplaceOpratorToText(expression, dynamicObject);
             expression = PreParserInfixExpression(expression, dynamicObject, isComplete);
+            if (string.IsNullOrEmpty(expression))
+                return queue;
             var operatorStack = new Stack<OperatorChar>();
 
             int index = 0;
