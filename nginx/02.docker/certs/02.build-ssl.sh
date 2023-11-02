@@ -8,13 +8,13 @@ fi
 DOMAIN=$1
 
 mkdir $DOMAIN
-#!/bin/sh
+
 if uname | grep -q "MINGW"; then
   winpty openssl genrsa -out $DOMAIN/server.key 2048
-  winpty openssl req -new -key $DOMAIN/server.key -out $DOMAIN/server.csr
+  winpty openssl req -new -key $DOMAIN/server.key -out $DOMAIN/server.csr -subj "//C=CN\ST=Beijing\L=Beijing\O=TestOrganization\OU=TestOU\CN=TestRootCA\emailAddress=admin@test.com"
 else
   openssl genrsa -out $DOMAIN/server.key 2048
-  openssl req -new -key $DOMAIN/server.key -out $DOMAIN/server.csr
+  openssl req -new -key $DOMAIN/server.key -out $DOMAIN/server.csr -subj "/C=CN/ST=Beijing/L=Beijing/O=TestOrganization/OU=TestOU/CN=TestRootCA/emailAddress=admin@test.com"
 fi
 
 cat >$DOMAIN/server.ext <<EOF

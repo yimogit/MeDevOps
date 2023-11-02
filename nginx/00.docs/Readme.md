@@ -51,3 +51,25 @@ openssl x509 -req -CA ca.crt -CAkey ca.key -CAcreateserial -in server.csr -out s
 - 设置语言：中文
 - 配置域名：添加域名到可信赖的访问来源
 - 配置参考：https://blog.csdn.net/qq_36961626/article/details/123314087
+
+### linux bash 中使用 curl 问题
+
+curl 请求自签证书地址报错，使用 curl -k 访问即可
+
+```
+curl: (60) SSL certificate problem: self signed certificate
+More details here: https://curl.haxx.se/docs/sslcerts.html
+
+```
+
+### linux 自签证书安装
+
+```
+cp ./myCA.pem /etc/pki/ca-trust/source/anchors/
+update-ca-trust -f
+
+# 查找openssl 进程
+ps aux | grep openssl
+kill xxxx
+reboot
+```
