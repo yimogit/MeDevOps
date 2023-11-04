@@ -1,0 +1,153 @@
+<mxfile host="app.diagrams.net" modified="2023-11-04T06:46:08.787Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.76" etag="BzO9fhNJI9LYNsg27oSC" version="21.8.1" type="github">
+  <diagram name="第 1 页" id="h7FXH5y53Gv5FEGIkQ5B">
+    <mxGraphModel dx="1426" dy="759" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-1" target="WsWCtFtdUo5rCT-uXRRJ-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1340" y="455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-1" value="Nexus服务" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="430" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-3" target="WsWCtFtdUo5rCT-uXRRJ-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-3" target="WsWCtFtdUo5rCT-uXRRJ-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-3" value="Docker" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-7" target="WsWCtFtdUo5rCT-uXRRJ-53">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="157" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="180" y="220" />
+              <mxPoint x="180" y="165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-7" target="WsWCtFtdUo5rCT-uXRRJ-59">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="306" as="targetPoint" />
+            <mxPoint x="100" y="236" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="180" y="220" />
+              <mxPoint x="180" y="256" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-7" value="客户端" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="190" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-15" target="WsWCtFtdUo5rCT-uXRRJ-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-32" value="test.com解析指向到192.168.123.214的nginx服务器" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="WsWCtFtdUo5rCT-uXRRJ-18">
+          <mxGeometry x="-0.2528" relative="1" as="geometry">
+            <mxPoint x="87" y="-66" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-15" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/DNS_Zones.svg;" vertex="1" parent="1">
+          <mxGeometry x="827" y="162" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.875;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-19" target="WsWCtFtdUo5rCT-uXRRJ-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="990" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-70" value="nexus.devops.test.com" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=20;" vertex="1" connectable="0" parent="WsWCtFtdUo5rCT-uXRRJ-69">
+          <mxGeometry x="0.1905" y="3" relative="1" as="geometry">
+            <mxPoint x="-37" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="WsWCtFtdUo5rCT-uXRRJ-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="986.5" y="200" as="sourcePoint" />
+            <mxPoint x="870" y="790" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1010" y="200" />
+              <mxPoint x="1010" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-72" value="push.devops.test.com" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontStyle=1" vertex="1" connectable="0" parent="WsWCtFtdUo5rCT-uXRRJ-71">
+          <mxGeometry x="-0.0995" y="2" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-19" value="" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.proxy_server;" vertex="1" parent="1">
+          <mxGeometry x="960" y="149" width="76.5" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-39" value="docker-group&lt;br&gt;（企业版支持推送）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-41" value="docker-proxy" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-46" value="docker-hosted&lt;br&gt;（开源版支持推送）" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-53" target="WsWCtFtdUo5rCT-uXRRJ-54">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="149" />
+              <mxPoint x="440" y="149" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-57" value="使用docker-group源" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="WsWCtFtdUo5rCT-uXRRJ-55">
+          <mxGeometry x="-0.2" y="-1" relative="1" as="geometry">
+            <mxPoint x="4" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-53" value="拉取docker镜像" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="118" width="120" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-54" target="WsWCtFtdUo5rCT-uXRRJ-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="859" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-54" value="https://nexus.devops.test.com/" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="120" width="195" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-59" target="WsWCtFtdUo5rCT-uXRRJ-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-66" value="使用docker-hosted源" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="WsWCtFtdUo5rCT-uXRRJ-64">
+          <mxGeometry x="-0.35" y="2" relative="1" as="geometry">
+            <mxPoint x="18" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-59" value="推送docker镜像" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="226" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="WsWCtFtdUo5rCT-uXRRJ-60" target="WsWCtFtdUo5rCT-uXRRJ-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="150" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="690" y="250" />
+              <mxPoint x="859" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WsWCtFtdUo5rCT-uXRRJ-60" value="&#xa;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;https://push.devops.test.com/&lt;/span&gt;&#xa;&#xa;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="229" width="195" height="54" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
