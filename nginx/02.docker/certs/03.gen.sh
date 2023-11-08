@@ -15,3 +15,5 @@ sh $script_dir/02.build-ssl.sh dns.devops.test.com
 sh $script_dir/02.build-ssl.sh nexus.devops.test.com
 
 sh $script_dir/02.build-ssl.sh push.nexus.devops.test.com
+
+sh $script_dir/02.build-ssl.sh jumpserver.devops.test.com

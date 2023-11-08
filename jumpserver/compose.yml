@@ -1,0 +1,80 @@
+version: '3.1'
+services:
+  jms_mysql:
+    image: mariadb:10.6
+    container_name: jms_mysql
+    restart: always
+    environment:
+      MARIADB_DATABASE: jumpserver
+      MARIADB_ROOT_PASSWORD: devops666
+    healthcheck:
+      test: "mysql -h 127.0.0.1 -u root -p devops666 -e 'SHOW DATABASES;'"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - ./data-mysql:/var/lib/mysql
+    networks:
+      - devopsnetwork
+
+  jms_redis:
+    image: redis:6.2
+    container_name: jms_redis
+    restart: always
+    command: redis-server --requirepass devops666
+    environment:
+      REDIS_PASSWORD: devops666
+    healthcheck:
+      test: "redis-cli -h 127.0.0.1 -a devops666 info Replication"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - ./data-redis:/data
+    networks:
+      - devopsnetwork
+      
+  jms_server:
+    container_name: jms_all
+    restart: always
+    image: jumpserver/jms_all:v3.8.1
+    volumes:
+      - ./data-server/core/data:/opt/jumpserver/data # Core 持久化目录, 存储录像日志
+      - ./data-server/koko/data:/opt/koko/data # Koko 持久化目录
+      - ./data-server/lion/data:/opt/lion/data # Lion 持久化目录
+      - ./data-server/magnus/data:/opt/magnus/data # Magnus 持久化目录
+      - ./data-server/kael/data:/opt/kael/data # Kael 持久化目录
+      - ./data-server/chen/data:/opt/chen/data # Chen 持久化目录
+      - ./data-server/web/log:/var/log/nginx # Nginx 日志持久化目录
+    privileged: true
+    environment:
+      # 自行生成随机的字符串, 不要包含特殊字符串, 长度推荐大于等于 50
+      - SECRET_KEY=2FsdGVkX19mzMum9dqqphTCNpm9dqqphTCNpm9dqqphTCNpm9dqqphTCNpm9dqqphTCNpm9dqqphTCNpm9dqqphTCNpCPV
+      # 自行生成随机的字符串, 不要包含特殊字符串, 长度推荐大于等于 24
+      - BOOTSTRAP_TOKEN=m9dqqphTCNpm9dqqphTCNpm9dqqphTCNp 
+      # 日志等级, 测试环境推荐设置为 DEBUG
+      - LOG_LEVEL=ERROR
+      # redis配置
+      - REDIS_HOST=jms_redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=devops666
+      # mysql配置
+      - DB_HOST=jms_mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_NAME=jumpserver
+      - DB_PASSWORD=devops666
+      # 不设置无法登录,可以设置域名或者服务器的IP
+      - DOMAINS=jumpserver.devops.test.com,192.168.123.214
+    ports:
+      - '30000-30100:30000-30100'
+      - '2222:2222'
+      - '81:80'
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true
