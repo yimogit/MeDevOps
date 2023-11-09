@@ -67,7 +67,7 @@ services:
       - DB_NAME=jumpserver
       - DB_PASSWORD=devops666
       # 不设置无法登录,可以设置域名或者服务器的IP
-      - DOMAINS=jumpserver.devops.test.com,192.168.123.214
+      - DOMAINS=jumpserver.devops.test.com,192.168.123.214:81
     ports:
       - '30000-30100:30000-30100'
       - '2222:2222'
