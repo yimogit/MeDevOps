@@ -10,7 +10,7 @@ services:
        # 指定jvm参数
        INSTALL4J_ADD_VM_PARAMS: -Xms1g -Xmx1g -XX:MaxDirectMemorySize=3g
     volumes:
-    # 需要先给权限 chown -R 200 ./data
+    # 需要先给权限 mkdir -p ./data && chown -R 200 ./data
     - ./data:/nexus-data
     ports:
       - "8081:8081"

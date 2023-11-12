@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  prometheus:
+    restart: always
+    container_name: prometheus
+    image: prom/prometheus:v2.47.2
+    command:
+      # 配置文件
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      # 指定web面板账号密码访问
+      - '--web.config.file=/etc/prometheus/web-config.yml'
+      # 数据目录
+      - '--storage.tsdb.path=/prometheus'
+      # 数据保留时间
+      - '--storage.tsdb.retention.time=30d'
+      # 运行使用 curl -X POST http://localhost:9090/-/reload  重载其配置
+      - '--web.enable-lifecycle'
+    volumes:
+      # 需要权限 mkdir prometheus_data && chown 65534 ./prometheus_data
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_data:/prometheus
+      - ./web-config.yml:/etc/prometheus/web-config.yml
+    ports:
+      - 9090:9090
+    networks:
+      - devopsnetwork
+      
+networks:
+  devopsnetwork:
+    external: true

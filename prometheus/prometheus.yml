@@ -1,0 +1,16 @@
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+  external_labels:
+    monitor: 'codelab-monitor'
+
+scrape_configs:
+  # 监控的服务名
+  - job_name: 'prometheus'
+    # 每隔5秒从该作业中抓取目标
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+    basic_auth:
+      username: root
+      password: devops666
