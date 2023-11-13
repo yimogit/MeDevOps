@@ -3,12 +3,18 @@ services:
     grafana:
       restart: always
       container_name: grafana
-      image: grafana/grafana:6.7.2
+      image: grafana/grafana:10.2.0
       ports:
         - "3000:3000"
       volumes:
         - ./grafana_data:/var/lib/grafana
       environment:
-        - GF_SECURITY_ADMIN_USER=admin
-        - GF_SECURITY_ADMIN_PASSWORD=QhN90n4Q
+        - GF_SECURITY_ADMIN_USER=root
+        - GF_SECURITY_ADMIN_PASSWORD=devops666
         - GF_USERS_ALLOW_SIGN_UP=false
+      networks:
+        - devopsnetwork
+      
+networks:
+  devopsnetwork:
+    external: true

@@ -14,3 +14,8 @@ scrape_configs:
     basic_auth:
       username: root
       password: devops666
+  - job_name: 'devops-node'
+    # 每隔5秒从该作业中抓取目标
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['192.168.123.214:9100','192.168.123.216:9100','192.168.123.219:9100','192.168.123.222:9100']

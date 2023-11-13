@@ -73,3 +73,8 @@ ps aux | grep openssl
 kill xxxx
 reboot
 ```
+
+### docker 重载配置
+```sh
+docker exec nginx_1_24 nginx -s reload
+```
