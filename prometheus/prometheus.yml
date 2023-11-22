@@ -43,3 +43,40 @@ scrape_configs:
       - target_label: __address__
         # The mysqld_exporter host:port
         replacement: 192.168.123.214:9104
+  - job_name: mongodb
+    static_configs:
+      - targets: ['192.168.123.214:9216']
+        labels:
+          instance: mongodb
+  - job_name: clickhouse
+    static_configs:
+      - targets: ['192.168.123.214:9363']
+        labels:
+          instance: clickhouse
+  - job_name: redis_exporter
+    static_configs:
+      - targets: ['192.168.123.214:9121']
+        labels:
+          instance: redis-node
+  - job_name: redis_exporter_targets
+    static_configs:
+      - targets:
+        - redis://192.168.123.216:6380
+        - redis://192.168.123.219:6380
+        - redis://192.168.123.222:6380
+        - redis://192.168.123.216:6381
+        - redis://192.168.123.219:6381
+        - redis://192.168.123.222:6381
+    metrics_path: /scrape
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 192.168.123.214:9122
+  - job_name: rabbitmq
+    static_configs:
+      - targets: ['192.168.123.214:15692']
+        labels:
+          instance: rabbitmq
