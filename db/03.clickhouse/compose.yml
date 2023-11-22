@@ -10,10 +10,11 @@ services:
         hard: 262144
     environment:
       - TZ=Asia/Shanghai
-      - ports=8123,9363
+      - ports=8123,9363,9000
     ports:
       - 8123:8123
       - 9363:9363
+      - 9000:9000
     volumes:
       - ./data:/var/lib/clickhouse
       - ./logs:/var/log/clickhouse-server
