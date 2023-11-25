@@ -3,7 +3,7 @@ global:
 
   external_labels:
     monitor: 'codelab-monitor'
-
+    
 scrape_configs:
   # 监控的服务名
   - job_name: 'prometheus'
@@ -46,8 +46,6 @@ scrape_configs:
   - job_name: mongodb
     static_configs:
       - targets: ['192.168.123.214:9216']
-        labels:
-          instance: mongodb
   - job_name: clickhouse
     static_configs:
       - targets: ['192.168.123.214:9363']
@@ -80,3 +78,57 @@ scrape_configs:
       - targets: ['192.168.123.214:15692']
         labels:
           instance: rabbitmq
+  - job_name: blackbox_website
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    metrics_path: /probe
+    params:
+      module: [ http_2xx ]
+    static_configs:
+      - targets:
+        - https://www.cnblogs.com
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 192.168.123.214:9115  # The blackbox exporter's real hostname:port.
+  - job_name: blackbox_devops
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    metrics_path: /probe
+    params:
+      module: [ http_custom_ca_devops ]  # Look for a HTTP 200 response.
+    dns_sd_configs:
+      - names:
+          - nginx.devops.test.com
+          - apollo.devops.test.com
+          - rabbitmq.devops.test.com
+          - dns.devops.test.com
+          - nexus.devops.test.com
+          - jumpserver.devops.test.com
+          - grafana.devops.test.com
+          - prometheus.devops.test.com
+        type: A
+        port: 443
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+        replacement: https://192.168.123.214:443/  # Make probe URL be like https://1.2.3.4:443/
+      - source_labels: [__meta_dns_name]
+        target_label: instance
+      - target_label: __address__
+        replacement: 192.168.123.214:9115  # The blackbox exporter's real hostname:port.
+      - source_labels: [__meta_dns_name]
+        target_label: __param_hostname  # Make domain name become 'Host' header for probe requests
+      - source_labels: [__meta_dns_name]
+        target_label: vhost  # and store it in 'vhost' label
+      - source_labels: [__param_hostname]
+        regex: 'apollo.*'
+        target_label: __param_target
+        replacement: https://192.168.123.214:443/health
+      - source_labels: [__param_hostname]
+        regex: 'prometheus.*'
+        target_label: __param_target
+        replacement: https://root:devops666@192.168.123.214:443

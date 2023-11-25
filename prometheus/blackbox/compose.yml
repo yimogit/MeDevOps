@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  blackbox_exporter:
+    restart: always
+    container_name: blackbox_exporter 
+    environment:
+      TZ : 'Asia/Shanghai'
+    image: prom/blackbox-exporter:v0.24.0
+    command:
+      # 配置文件
+      - '--config.file=/config/blackbox.yml'
+    volumes:
+      - ./config:/config
+    ports:
+      - 9115:9115
+    networks:
+      - devopsnetwork
+      
+networks:
+  devopsnetwork:
+    external: true

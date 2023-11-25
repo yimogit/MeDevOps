@@ -4,6 +4,8 @@ services:
     restart: always
     container_name: prometheus
     image: prom/prometheus:v2.47.2
+    environment:
+      TZ : 'Asia/Shanghai'
     command:
       # 配置文件
       - '--config.file=/etc/prometheus/prometheus.yml'
