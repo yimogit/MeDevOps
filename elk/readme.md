@@ -13,18 +13,18 @@
 
 - 版本：v7.8.1
 - https://hub.docker.com/_/logstash
-- 文档地址：https://www.elastic.co/guide/en/logstash/reference/7.8/docker.html
+- 文档地址：https://www.elastic.co/guide/en/logstash/7.8/docker-config.html
 - 需要对目录进行授权
 
 ## kibana
 
 - 版本：v7.8.1
 - https://hub.docker.com/_/kibana
-- 文档地址：https://www.elastic.co/guide/en/kibana/reference/7.8/docker.html
+- 文档地址：https://www.elastic.co/guide/en/beats/filebeat/7.8/running-on-docker.html#_run_the_filebeat_setup
 
 ## filebeat
 
 - 版本：v7.8.1
 - https://hub.docker.com/_/filebeat/
-- https://www.elastic.co/guide/en/beats/filebeat/7.8/reference/7.8/docker.html
+- 文档地址：https://www.elastic.co/guide/en/beats/filebeat/7.8/running-on-docker.html
 - 需要对目录进行授权
