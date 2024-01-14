@@ -1,0 +1,25 @@
+
+output.logstash:
+  #logstash hosts
+  hosts: ["192.168.123.102:5044"]
+fields_under_root: true    
+filebeat.inputs: 
+ - type: log
+   enabled: true
+   paths:
+       - /app/logs/*/*.log    
+   close_older: 24h
+   ignore_older: 24h   
+   json.keys_under_root: true
+   json.overwrite_keys: true
+   encoding: utf-8 
+filebeat.config.modules: 
+  path: ${path.config}/modules.d/*.yml 
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 3  
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~  
+  - drop_fields:    
+      fields: ["log","@version","ecs","agent","beat","host","beat.hostname","beat.version","beat.name","prospector.type","input.type","host.id","host.name","host.os.build","host.os.family","host.os.name","host.os.platform","host.os.platform","log.file.path","tags","offset","host.architecture","host.os.version"]

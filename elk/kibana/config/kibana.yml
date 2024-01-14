@@ -1,0 +1,12 @@
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://192.168.123.102:9200/"]
+i18n.locale: "zh-CN"
+xpack:
+  apm.ui.enabled: false
+  graph.enabled: false
+  ml.enabled: false
+  monitoring.enabled: false
+  reporting.enabled: false
+  security.enabled: false
+  grokdebugger.enabled: false
+  searchprofiler.enabled: false

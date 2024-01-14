@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  elk_logstash:
+    image: logstash:7.17.16
+    container_name: elk_logstash
+    restart: always
+    ports:
+      - 5044:5044 
+    volumes:
+     # 授权 chmod 777 ./logs/ && chmod 777 ./data/ && chmod 777 ./pipeline/ && chmod 777 ./config/ 
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime:ro
+      - ./logs:/usr/share/logstash/logs
+      - ./data:/usr/share/logstash/data
+      - ./pipeline:/usr/share/logstash/pipeline
+      - ./config:/usr/share/logstash/config
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true

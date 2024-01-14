@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  elk_kibana:
+    image: kibana:7.8.1
+    container_name: elk_kibana
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms4096m -Xmx4096m
+    ports:
+      - 5601:5601 
+    volumes:
+      - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true

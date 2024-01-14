@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  elk_elasticsearch:
+    image: elasticsearch:7.8.1
+    container_name: elk_elasticsearch
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms4096m -Xmx4096m
+    ports:
+      - 9200:9200 
+      - 9300:9300 
+    volumes:
+      # 授权 chmod 777 ./config/ && chmod 777 ./data/
+      - ./data:/usr/share/elasticsearch/data
+      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      - devopsnetwork
+
+networks:
+  devopsnetwork:
+    external: true
