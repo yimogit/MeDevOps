@@ -1,0 +1,90 @@
+---
+## 配置服务
+kind: Service
+apiVersion: v1
+metadata:
+  name: app-zhontai-api
+  namespace: default
+  labels:
+    app: app-zhontai-api
+spec:
+  selector:
+    app: app-zhontai-api
+  type: ClusterIP
+  ports:
+    - name: p80
+      port: 80
+      targetPort: 8000
+---
+
+kind: Deployment # 指定创建资源的角色/类型
+apiVersion: apps/v1 # 指定api版本，此值必须在kubectl api-versions中
+metadata: # 资源的元数据/属性
+  name: app-zhontai-api # 资源的名字，在同一个namespace中必须唯一
+  namespace: default # 部署在哪个namespace中
+  labels: # 设定资源的标签
+    app: app-zhontai-api
+spec: # 资源规范字段  
+  selector:
+    matchLabels:
+      app: app-zhontai-api
+  replicas: 2 # 声明副本数目
+  revisionHistoryLimit: 2 # 保留历史版本
+  strategy: # 策略
+    rollingUpdate: # 滚动更新
+      maxSurge: 1 # 最大额外可以存在的副本数，可以为百分比，也可以为整数
+      maxUnavailable: 1 # 示在更新过程中能够进入不可用状态的 Pod 的最大值，可以为百分比，也可以为整数
+    type: RollingUpdate # 滚动更新策略
+  template: # 模版
+    metadata: # 资源的元数据/属性
+      labels: # 设定资源的标签
+        app: app-zhontai-api
+    spec: # 资源规范字段
+      containers:
+        - image: nexus.devops.test.com/projectapp/zhontai_api:latest # 容器使用的镜像地址
+          name: app-zhontai-api # 容器的名字
+          # 每次Pod启动拉取镜像策略，三个选择 Always、Never、IfNotPresent
+          # Always，每次都检查；Never，每次都不检查（不管本地是否有）；IfNotPresent，如果本地有就不检查，如果没有就拉取
+          imagePullPolicy: Always 
+          resources: # 资源管理
+            # limits: # 最大使用
+            #   cpu: 300m # CPU，1核心 = 1000m
+            #   memory: 500Mi # 内存，1G = 1024Mi
+            # requests: # 容器运行时，最低资源需求，也就是说最少需要多少资源容器才能正常运行
+            #   cpu: 100m
+            #   memory: 100Mi
+          livenessProbe: # pod 内部健康检查的设置
+            httpGet: # 通过httpget检查健康，返回200-399之间，则认为容器正常
+              path: /admin/health # URI地址
+              port: 8000 # 端口
+              scheme: HTTP # 协议
+            initialDelaySeconds: 10 # 表明第一次检测在容器启动后多长时间后开始
+            timeoutSeconds: 5 # 检测的超时时间
+            periodSeconds: 30 # 检查间隔时间
+            successThreshold: 1 # 成功门槛
+            failureThreshold: 5 # 失败门槛，连接失败5次，pod杀掉，重启一个新的pod
+          ports:
+            - name: http # 名称
+              containerPort: 80 # 容器开发对外的端口
+              protocol: TCP # 协议
+          env:
+            # 时区
+            - name: TZ
+              value: Asia/Shanghai
+            # app name
+            - name: APP_NAME
+              value: app.zhontai.api
+          # 挂载
+          volumeMounts:
+            - name: app-logs
+              mountPath: /logs #容器中的路径
+      # 卷轴
+      volumes:
+        - name: app-logs
+          hostPath: 
+            path: /app/logs #将日志存放在宿主机的路径，需要在宿主机创建目录
+            type: Directory
+      #重启策略
+      restartPolicy: Always    
+      imagePullSecrets: # 镜像仓库拉取密钥
+        - name: nexus-login-registry
