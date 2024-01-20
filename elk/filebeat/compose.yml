@@ -4,9 +4,6 @@ services:
     image: elastic/filebeat:7.8.1
     container_name: elk_filebeat
     restart: always
-    environment:
-      - SERVICE_IGNORE=true
-      - ES_JAVA_OPTS=-Xms4096m -Xmx4096m
     volumes:
       # 授权 chmod 777 ./config/ && chmod 777 ./data/ && chmod 777 ./logs/ && chmod 777 /app/logs
       - ./config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro

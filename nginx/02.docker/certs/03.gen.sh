@@ -23,3 +23,5 @@ sh ./02.build-ssl.sh prometheus.devops.test.com
 sh ./02.build-ssl.sh grafana.devops.test.com
 
 sh ./02.build-ssl.sh k8s.devops.test.com
+
+sh ./02.build-ssl.sh kibana.devops.test.com
