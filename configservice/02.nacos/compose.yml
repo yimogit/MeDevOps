@@ -1,0 +1,45 @@
+version: "3.1"
+services:
+  nacosserver:
+    image: nacos/nacos-server:v2.3.1
+    container_name: nacos-server
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      # 开启鉴权 默认 nacos nacos
+      - NACOS_AUTH_ENABLE=true
+    volumes:
+      - ./logs/:/home/nacos/logs
+      - ./init.d/application.properties:/home/nacos/conf/application.properties
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    depends_on:
+      nacosdb:
+        condition: service_healthy
+
+    restart: on-failure
+  nacosdb:
+    container_name: nacos-mysql
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=devops666
+      - MYSQL_DATABASE=nacos_db
+      - MYSQL_USER=nacos
+      - MYSQL_PASSWORD=nacos
+      - LANG=C.UTF-8
+    volumes:
+      - ./initsql:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      # 指定配置文件，需要手动创建
+      # - ./config/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - "4306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
